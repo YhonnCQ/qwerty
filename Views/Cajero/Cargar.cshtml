@@ -1,0 +1,52 @@
+﻿@model List<ProyectoU1GrupoQWERTY.Models.ClassDinero>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cargar</title>
+</head>
+<body>
+    @using (Html.BeginForm("Cargar", "Cajero", FormMethod.Post))
+    {
+        foreach (var item in Model)
+        {
+
+            <label>S/. @item.nombre</label><br />
+            <input type="number" name="@item.nombre" max="@(item.limite - item.cantidad)" value="0"/><br />
+        }
+        <input type="submit" name="Cargar" value="Cargar" />
+    }
+<div>
+    <table class="table table-bordered table-responsive table-hover table-striped">
+        <tr>
+            <th>Moneda</th>
+            <th>Cantidad</th>
+            <th>Limite</th>
+            <th>Grafico</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.nombre
+                </td>
+                <td>
+                    @item.cantidad
+                </td>
+                <td>
+                    @item.limite
+                </td>
+                <td>
+                    <progress value="@item.cantidad" max="@item.limite"></progress>
+                </td>
+            </tr>
+        }
+     </table>
+</div>
+</body>
+</html>

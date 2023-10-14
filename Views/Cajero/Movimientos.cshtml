@@ -1,0 +1,43 @@
+﻿@model List<ProyectoU1GrupoQWERTY.Models.ClassMovimiento>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Movimientos</title>
+</head>
+<body>
+    <table class="table table-bordered table-responsive table-hover table-striped">
+        <tr>
+            <th>Nro</th>
+            <th>Tipo Movimientos</th>
+            <th>Fecha y Hora</th>
+            <th>Importe</th>
+        </tr>
+        @{ 
+            int index = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @(++index)
+                </td>
+                <td>
+                    @item.tipo
+                </td>
+                <td>
+                    @item.fecha
+                </td>
+                <td>
+                    @item.importe
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

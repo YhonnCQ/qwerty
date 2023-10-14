@@ -1,0 +1,31 @@
+﻿
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <h3>Pulgadas a Milimetros</h3>
+                    <form method="post">
+                        PULGADAS: <input type="text" name="txtpul" value="@ViewBag.pul" />
+                        <br />
+                        <input type="submit" value="Convertir" />
+                        <br />
+                        MILIMETROS: <input type="text" name="txtmili" value="@ViewBag.mili" readonly="readonly" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

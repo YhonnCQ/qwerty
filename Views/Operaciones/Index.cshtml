@@ -1,0 +1,43 @@
+﻿@model List<ProyectoU1GrupoQWERTY.Models.ClassAleatorio>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Index", "Operaciones", FormMethod.Post))
+        {
+            <input type="number" name="cantidad" />
+            <input type="submit" name="Generar" value="Generar" /><br />
+            <input type="radio" name="opcion" value="mayor" />
+            <label>Mayor</label> <br />
+            <input type="radio" name="opcion" value="menor" />
+            <label>Menor</label> <br />
+            <input type="radio" name="opcion" value="suma" />
+            <label>Suma</label> <br />
+            <input type="radio" name="opcion" value="promedio" />
+            <label>Promedio</label><br />
+            <input type="submit" name="Calcular" value="Calcular" />
+        }
+        <div>
+            @foreach (var item in Model)
+            {
+                <div>
+                    @item.numero
+                </div>
+            }
+        </div>
+        <p>
+            @ViewBag.resultado
+        </p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Jugador vs PC";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Juego</title>
+</head>
+<body>
+    <div class="container text-center">
+        <p class="lead text-black-50">Por favor seleccione su opcion</p>
+        <table class="center">
+            <tbody class="text-center">
+                <tr>
+                    <td><img src="~/Source/imgs/rock.png" alt="Piedra" width="150" height="150" /></td>
+                    <td><img src="~/Source/imgs/paper.png" alt="Papel" width="150" height="150" /></td>
+                    <td><img src="~/Source/imgs/scissors.png" alt="Tijeras" width="150" height="150" /></td>
+                </tr>
+                <tr class="text-center">
+                    <td>
+                        @using (Html.BeginForm("JugadorVsPC", "PPT", FormMethod.Post))
+                        {
+                        <input type="number" name="id" value="0" hidden/>
+                            <button type="submit" class="btn btn-outline-danger btn-lg">PIEDRA</button>
+                        }
+                        @*<a asp-controller="PPT" asp-action="JugadorVsPC" asp-route-id="0"
+                           class="btn btn-outline-primary btn-lg">PIEDRA</a>*@
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("JugadorVsPC", "PPT", FormMethod.Post))
+                        {
+                            <input type="number" name="id" value="1" hidden/>
+                            <button type="submit" class="btn btn-outline-danger btn-lg">PAPEL</button>
+                        }
+                        @*<a asp-controller="PPT" asp-action="JugadorVsPC" asp-route-id="1"
+        class="btn btn-outline-primary btn-lg">PAPEL</a>*@
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("JugadorVsPC", "PPT", FormMethod.Post))
+                        {
+                            <input type="number" name="id" value="2" hidden/>
+                            <button type="submit" class="btn btn-outline-danger btn-lg">TIJERAS</button>
+                        }
+                        @*<a asp-controller="PPT" asp-action="JugadorVsPC" asp-route-id="2"
+        class="btn btn-outline-primary btn-lg">TIJERAS</a>*@
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container text-center m-3">
+        @using (Html.BeginForm("Index", "PPTHome", FormMethod.Post))
+        {
+            <button type="submit" class="btn btn-outline-danger btn-lg">Cancelar</button>
+        }
+        @*<a asp-controller="PPTHome" asp-action="Index" class="btn btn-outline-danger">Cancelar</a>*@
+    </div>
+</body>
+</html>

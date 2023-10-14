@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <div class="container text-center">
+        <img src="~/Source/imgs/PPT.png" alt="Piedra" width="250" height="250" />
+        @using (Html.BeginForm("Index", "PPT", FormMethod.Get))
+        {
+            <button type="submit" class="btn btn-outline-danger btn-lg">Jugador vs PC</button>
+        }
+        @using (Html.BeginForm("PCvsPC", "PPT", FormMethod.Get))
+        {
+            <button type="submit" class="btn btn-outline-danger btn-lg">PC vs PC</button>
+        }
+        @*<form asp-controller="PPT" asp-action="JugadorVsPC" method="get">
+            <button type="submit" class="btn btn-outline-danger btn-lg">Jugador vs PC</button>
+        </form>
+        <form asp-controller="PPT" asp-action="PCvsPC" method="get">
+            <button type="submit" class="btn btn-outline-danger btn-lg">PC vs PC</button>
+        </form>*@
+    </div>
+</body>
+</html>

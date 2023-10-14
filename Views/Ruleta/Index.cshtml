@@ -1,0 +1,36 @@
+﻿@model List<ProyectoU1GrupoQWERTY.Models.ClassEstudiante>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form method="post">
+        <label>Limite</label><br />
+        <input type="number" name="limite" value="@Session["limiteMax"]" /><br />
+        <input type="submit" name="GuardarLimite" value="Guardar Limite" /><br />
+        <label>Intentos</label>
+        <input type="number" min="0" max="@Session["limiteMax"]" value="@Session["intentos"]" name="intentos" /><br />
+        <label>Nombre de Estudiante: </label>
+        <input type="text" name="nombre" value="" />
+        <input type="submit" name="Guardar" value="Guardar" /> <br />
+        <input type="submit" name="Ruleta" value="Ruleta" />
+    </form>
+    @foreach (var item in Model)
+    {
+        <div>
+            @item.nombre
+        </div>
+    }
+    @if (ViewData["Ganador"] != null)
+    {
+        <label>Ganador: </label>@ViewData["Ganador"] <br />
+    }
+</body>
+</html>

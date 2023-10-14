@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Results";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+</head>
+<body>
+    <div class="container text-center">
+        @if (ViewBag.Message == "Perdiste")
+        {
+            <h1 class="Mensaje">@ViewBag.Message</h1>
+        }
+        else if(ViewBag.Message == "Empate")
+        {
+            <h1>@ViewBag.Message</h1>
+        }
+        else
+        {
+            <h1 class="MensajeVerde">@ViewBag.Message</h1>
+        }
+        <p>@ViewBag.Opciones</p>
+    </div>
+    <div class="container text-center resultButtons">
+        <table class="center">
+            <tr>
+                <td class="text-center">
+                    @using (Html.BeginForm("Index", "PPT", FormMethod.Get))
+                    {
+                        <button type="submit" class="btn btn-success">Jugar de nuevo?</button>
+                    }
+                    @*<form asp-controller="PPT" asp-action="Index">
+                         <button type="submit" class="btn btn-success>Jugar de nuevo?</button>
+                      </form>*@
+                    </td>
+                <td class="text-center">
+                    @using (Html.BeginForm("Index", "PPTHome", FormMethod.Get))
+                    {
+                        <button type="submit" class="btn btn-outline-danger">Cancelar</button>
+                    }
+                    @*<form asp-controller="PPTHome" asp-action="Index">
+                        <button type="submit" class="btn btn-outline-danger>Cancelar</button>
+                    </form>*@
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

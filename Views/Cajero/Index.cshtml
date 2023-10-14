@@ -1,0 +1,37 @@
+﻿@model List<ProyectoU1GrupoQWERTY.Models.ClassDinero>
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Cajero", FormMethod.Post))
+    {
+        <input type="number" min="0" step="10" name="monto" value="" />
+        <input type="submit" name="Retirar" value="Retirar" />
+    }
+
+    <p>RETIRO</p>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            if (item.cantidad > 0)
+            {
+                <div>
+                    S/. @item.nombre
+                </div>
+                <div>
+                    Cantidad : @item.cantidad
+                </div>
+            }
+        }
+    }
+</body>
+</html>
